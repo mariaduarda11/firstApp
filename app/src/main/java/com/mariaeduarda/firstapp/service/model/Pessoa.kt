@@ -8,7 +8,9 @@ import androidx.room.PrimaryKey
 data class Pessoa(
     @PrimaryKey(autoGenerate = true)
     var id: Int =0,
-    var name: String ="",
-    var idade: Int =0
+    var nome: String ="",
+    var sexo:String = "" ,
+    var idade: Int =0,
+    var faixa_etaria: String = "",
 
 )

@@ -16,7 +16,7 @@ class PessoaRepository(context: Context) {
     }
 
     suspend fun updatePessoa(pessoa:Pessoa){
-        firstAppDb.update(pessoa)
+       return firstAppDb.update(pessoa)
     }
     suspend fun getPessoas(): List<Pessoa> {
        return firstAppDb.getAll()

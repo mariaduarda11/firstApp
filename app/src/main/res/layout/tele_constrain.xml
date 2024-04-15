@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:text="Telefone"
         android:textSize="20sp"
-
+        android:textColor="#E91E63"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="128dp"
         android:text="Email"
         android:textSize="20sp"
-
+        android:textColor="#E91E63"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#FFD34E"
+        android:backgroundTint="#FF0084"
         android:text="Enviar"
         tools:layout_editor_absoluteX="129dp"
         tools:layout_editor_absoluteY="229dp" />

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.PessoaFragment">
+    tools:context=".view.PessoaFragment"
+    >
 
 
     <TextView
@@ -13,14 +14,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Nome: "
+        android:text="Sexo: "
         android:textSize="24sp"
-        android:background="#F1739E"/>
+        android:textColor="#E91E63"
+        />
     <EditText
         android:id="@+id/edtNome"
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite seu nome..." />
+         />
     <TextView
         android:id="@+id/tvIdade"
         android:layout_width="wrap_content"
@@ -28,13 +30,38 @@
         android:text="Nascimento: "
         android:textSize="24sp"
         android:layout_marginTop="20dp"
-        android:background="#F1739E"/>
+        android:textColor="#E91E63"/>
+
+
     <EditText
         android:id="@+id/edtAno"
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite seu ano..."
+        android:hint="Informe sua idade..."
         android:inputType="number"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/masculino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masculino"
+        android:textSize="15sp"
+        android:layout_marginEnd="10dp"/>
+    <RadioButton
+        android:id="@+id/feminino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feminino"
+        android:textSize="15sp"
+        />
+    </RadioGroup>
+
+
     <Button
         android:id="@+id/btnEnviar"
         android:layout_width="wrap_content"

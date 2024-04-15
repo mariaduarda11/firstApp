@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Telefone"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:textColor="#E91E63"/>
 
     <EditText
         android:id="@+id/edtTelefone"
@@ -31,7 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#E91E63"/>
 
     <EditText
         android:id="@+id/edtEmail"
@@ -45,10 +47,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#FFD34E"
+        android:backgroundTint="#FF1493"
         android:text="Enviar"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="184dp" />
+        tools:layout_editor_absoluteY="188dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
