@@ -1,5 +1,6 @@
 package com.mariaeduarda.firstapp.view
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.mariaeduarda.firstapp.R
 import com.mariaeduarda.firstapp.databinding.FragmentPessoaBinding
 import com.mariaeduarda.firstapp.service.model.Pessoa
 import com.mariaeduarda.firstapp.viewmodel.PessoaViewModel
+import java.time.LocalDateTime
 
 
 class PessoaFragment : Fragment() {
@@ -31,13 +33,17 @@ class PessoaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        //Carregar a pessoa caso tenha selecionado
+        arguments?. let {
+            viewModel.getPessoa(it.getInt("pessoaId"))
+        }
 
         binding.btnEnviar.setOnClickListener{
             val nome = binding.edtNome.editableText.toString()
             val ano  = binding.edtAno.editableText.toString()
 
 
-            if (nome!= ""&& ano !=""){
+            if (nome!= ""&& ano !="" ){
 
                 val idade = 2024 - ano.toInt()
                 var sexo = ""
@@ -67,9 +73,14 @@ class PessoaFragment : Fragment() {
                     faixa_etaria = faixaEtaria
                 )
 
+                viewModel.pessoa.value?.let {
 
+                    pessoa.id = it.id
+                    viewModel.update(pessoa)
 
-
+                }?: run {
+                    viewModel.insert(pessoa)
+                }
 
 
                 viewModel.insert(pessoa)
@@ -79,6 +90,34 @@ class PessoaFragment : Fragment() {
             }else{
                 Toast.makeText(requireContext(),"Digite os dados", Toast.LENGTH_LONG).show()
             }
+
+        }
+
+        binding.btnDeletar.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Exclusão de pessoas")
+                .setMessage("você reamente deseja deletar?")
+                .setPositiveButton("sim"){_,_ -> }
+                .show()
+
+            viewModel.delete(viewModel.pessoa.value?.id ?: 0)
+            findNavController().navigateUp()
+
+        }
+
+
+
+        viewModel.pessoa.observe(viewLifecycleOwner){pessoa->
+            binding.edtNome.setText(pessoa.nome)
+            binding.edtAno.setText(( LocalDateTime.now().year - pessoa.idade).toString())
+
+
+            if (pessoa.sexo == "Masculino"){
+                binding.masculino.isChecked = true
+            }else{
+                binding.feminino.isChecked = true
+            }
+            binding.btnDeletar.visibility = View.VISIBLE
 
         }
     }
